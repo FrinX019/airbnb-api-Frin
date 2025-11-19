@@ -72,11 +72,20 @@ router.get("/update", async (req, res, next) => {
 // UPDATE LISTING SUBMIT
 router.post("/update/:id", async (req, res, next) => {
   try {
+    if (req.body.price) {
+  // Remove everything except digits
+  const numeric = req.body.price.toString().replace(/\D/g, "");
+
+  // Format final value with $ prefix
+  req.body.price = `$${numeric}`;
+}
+
     await Listing.findOneAndUpdate(
       { id: req.params.id },
       req.body,
       { new: true }
     );
+
     res.redirect(`/airbnb_hbs/view/${req.params.id}`);
   } catch (err) {
     next(err);

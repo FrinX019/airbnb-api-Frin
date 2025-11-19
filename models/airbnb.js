@@ -1,69 +1,126 @@
+// const mongoose = require("mongoose");
+
+// const listingSchema = new mongoose.Schema(
+//   {
+//     listingId: { type: String, required: true, unique: true },
+
+//     name: String,
+
+//     host: {
+//       hostId: String,
+//       name: String,
+//       identityVerified: {
+//         type: Boolean,
+//         default: false
+//       },
+//       totalListings: Number
+//     },
+
+//     location: {
+//       neighbourhoodGroup: String,
+//       neighbourhood: String,
+//       country: String,
+//       countryCode: String,
+//       coordinates: {
+//         type: { type: String, enum: ["Point"], default: "Point" },
+//         coordinates: { type: [Number], index: "2dsphere" }
+//       }
+//     },
+
+//     details: {
+//       roomType: String,
+//       propertyType: String,
+//       constructionYear: Number,
+//       minimumNights: Number,
+//       houseRules: String,
+//       license: String
+//     },
+
+//     pricing: {
+//       price: String,
+//       serviceFee: String,
+//       currency: { type: String, default: "USD" }
+//     },
+
+//     booking: {
+//       instantBookable: Boolean,
+//       cancellationPolicy: String,
+//       availability365: Number
+//     },
+
+//     reviews: {
+//       numberOfReviews: Number,
+//       lastReview: Date,
+//       reviewsPerMonth: Number,
+//       rating: Number
+//     },
+
+//     images: {
+//       thumbnail: String,
+//       gallery: [String]
+//     }
+//   },
+//   {
+//     timestamps: true
+//   }
+// );
+
+// // IMPORTANT FIX HERE: specify correct collection name
+// module.exports = mongoose.model("Listing", listingSchema, "Airbnb_Listings");
+
 const mongoose = require("mongoose");
 
-const listingSchema = new mongoose.Schema(
+const AirbnbSchema = new mongoose.Schema(
   {
-    listingId: { type: String, required: true, unique: true },
+    id: { type: String, required: true },
 
-    name: String,
+    NAME: String,
 
-    host: {
-      hostId: String,
-      name: String,
-      identityVerified: {
-        type: Boolean,
-        default: false
-      },
-      totalListings: Number
-    },
+    "host id": String,
+    "host_identity_verified": String,
+    "host name": String,
 
-    location: {
-      neighbourhoodGroup: String,
-      neighbourhood: String,
-      country: String,
-      countryCode: String,
-      coordinates: {
-        type: { type: String, enum: ["Point"], default: "Point" },
-        coordinates: { type: [Number], index: "2dsphere" }
-      }
-    },
+    "neighbourhood group": String,
+    neighbourhood: String,
 
-    details: {
-      roomType: String,
-      propertyType: String,
-      constructionYear: Number,
-      minimumNights: Number,
-      houseRules: String,
-      license: String
-    },
+    lat: String,
+    long: String,
 
-    pricing: {
-      price: Number,
-      serviceFee: Number,
-      currency: { type: String, default: "USD" }
-    },
+    country: String,
+    "country code": String,
 
-    booking: {
-      instantBookable: Boolean,
-      cancellationPolicy: String,
-      availability365: Number
-    },
+    instant_bookable: String,
+    cancellation_policy: String,
 
-    reviews: {
-      numberOfReviews: Number,
-      lastReview: Date,
-      reviewsPerMonth: Number,
-      rating: Number
-    },
+    "room type": String,
+    "Construction year": String,
 
-    images: {
-      thumbnail: String,
-      gallery: [String]
-    }
+    price: String,
+    "service fee": String,
+
+    "minimum nights": String,
+    "number of reviews": String,
+
+    "last review": String,
+    "reviews per month": String,
+
+    "review rate number": String,
+    "calculated host listings count": String,
+
+    "availability 365": String,
+
+    house_rules: String,
+    license: String,
+
+    property_type: String,
+
+    thumbnail: String,
+    images: [String]
   },
   {
-    timestamps: true
+    collection: "Airbnb_Listings",
+    strict: false
   }
 );
 
-// IMPORTANT FIX HERE: specify correct collection name
-module.exports = mongoose.model("Listing", listingSchema, "Airbnb_Listings");
+module.exports = mongoose.model("Airbnb", AirbnbSchema);
