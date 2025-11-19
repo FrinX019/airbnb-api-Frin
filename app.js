@@ -75,7 +75,7 @@ process.on("SIGINT", async () => {
 
 
 // Root route, front page at vercle
-app.get("/", (req, res) => {
+app.use("/", (req, res) => {
   res.send(`
     <!DOCTYPE html>
     <html lang="en">
