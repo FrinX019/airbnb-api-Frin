@@ -167,14 +167,6 @@ app.use((err, req, res, next) => {
 });
 
 // Start server
-// app.listen(config.port, () => {
-//   console.log(`Server running on port ${config.port}`);
-// });
-
-if (process.env.NODE_ENV !== "production") {
-  app.listen(config.port, () => {
-    console.log(`Local server running on port ${config.port}`);
-  });
-}
-
-module.exports = app;
+app.listen(config.port, () => {
+  console.log(`Server running on port ${config.port}`);
+});
