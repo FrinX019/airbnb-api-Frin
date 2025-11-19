@@ -1,0 +1,27 @@
+<h2>All Airbnb Listings</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>Neighbourhood</th>
+            <th>Price</th>
+            <th>View</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each listings}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{NAME}}</td>
+            <td>{{neighbourhood}}</td>
+            <td>{{pricing.price}}</td>
+            <td>
+                <a href="/airbnb_hbs/{{id}}">View</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

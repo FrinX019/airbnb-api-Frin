@@ -1,0 +1,25 @@
+<h2>Update Listing</h2>
+
+{{!-- Search Section --}}
+<form method="get" action="/airbnb_hbs/update">
+    <label>Enter Listing ID:</label>
+    <input type="text" name="id" value="{{queryId}}" required>
+    <button type="submit">Search</button>
+</form>
+
+<hr>
+
+{{#if listing}}
+<h3>Editing Listing: {{listing.id}}</h3>
+
+<form action="/airbnb_hbs/update/{{listing.id}}" method="post">
+    <label>Name:</label>
+    <input type="text" name="NAME" value="{{listing.NAME}}">
+
+    <label>Price:</label>
+    <input type="number" name="pricing[price]" value="{{listing.pricing.price}}">
+
+    <button type="submit">Update Listing</button>
+</form>
+
+{{/if}}

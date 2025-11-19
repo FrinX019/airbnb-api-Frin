@@ -1,0 +1,19 @@
+<h2>Listing Details</h2>
+
+{{#if listing}}
+
+<p><strong>ID:</strong> {{listing.id}}</p>
+<p><strong>Name:</strong> {{listing.NAME}}</p>
+<p><strong>Neighbourhood:</strong> {{listing.neighbourhood}}</p>
+<p><strong>Price:</strong> {{listing.pricing.price}}</p>
+
+<br>
+
+<a href="/airbnb_hbs/update?id={{listing.id}}">Update This Listing</a><br>
+<a href="/airbnb_hbs/delete?id={{listing.id}}">Delete This Listing</a>
+
+{{else}}
+
+<p>No listing found.</p>
+
+{{/if}}

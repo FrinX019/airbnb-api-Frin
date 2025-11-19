@@ -1,0 +1,24 @@
+<h2>Delete Listing</h2>
+
+{{!-- Search Section --}}
+<form method="get" action="/airbnb_hbs/delete">
+    <label>Enter Listing ID:</label>
+    <input type="text" name="id" value="{{queryId}}" required>
+    <button type="submit">Search</button>
+</form>
+
+<hr>
+
+{{#if listing}}
+
+<h3>Are you sure you want to delete this listing?</h3>
+
+<p><strong>ID:</strong> {{listing.id}}</p>
+<p><strong>Name:</strong> {{listing.NAME}}</p>
+<p><strong>Price:</strong> {{listing.price}}</p>
+
+<form action="/airbnb_hbs/delete/{{listing.id}}" method="post">
+    <button type="submit" style="background-color:red;color:white;">Confirm Delete</button>
+</form>
+
+{{/if}}

@@ -1,0 +1,17 @@
+<h2>Add New Listing</h2>
+
+<form action="/airbnb_hbs/add" method="post">
+    <label>ID:</label>
+    <input type="text" name="id" required>
+
+    <label>Name:</label>
+    <input type="text" name="NAME" required>
+
+    <label>Neighbourhood:</label>
+    <input type="text" name="neighbourhood">
+
+    <label>Price:</label>
+    <input type="number" name="pricing[price]" required>
+
+    <button type="submit">Add Listing</button>
+</form>
