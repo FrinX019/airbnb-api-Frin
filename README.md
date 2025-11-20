@@ -14,12 +14,12 @@ Includes listing pages, single-view pages, delete functionality, and simple pagi
 
 ---
 
-## 🚀 Quick Setup
-```markdown
+## 🚀 Quick Setup=
 ```bash
 git clone https://github.com/FrinX019/employee-api-Frin.git
 cd employee-api-Frin
-npm install```
+npm install
+```
 
 # Create a .env file:
 ```bash 
