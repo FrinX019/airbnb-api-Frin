@@ -34,7 +34,9 @@ app.engine("hbs", exphbs.engine({
     layoutsDir: path.join(__dirname, "views", "layouts"),
     partialsDir: path.join(__dirname, "views", "partials"),
     helpers: {
-        eq: (a, b) => a === b
+        eq: (a, b) => a === b,
+        add: (a, b) => a + b,
+        subtract: (a, b) => a - b
     }
 }));
 
@@ -85,15 +87,18 @@ app.get("/", (req, res) => {
     <h3>Available Links:</h3>
     <ul>
       <li><a href="/api/airbnb">API: All Listings</a></li>
-      <li><a href="/api/airbnb">HBS: Home Page</a></li>
-      <li><a href="/api/airbnb/list">HBS: All Listings Page</a></li>
-      <li><a href="/search-type">HBS: Search by Room Type</a></li>
-      <li><a href="/api-docs">API Documentation</a></li>
+      <li><a href="/airbnb_hbs">HBS: Home Page</a></li>
+      <li><a href="/airbnb_hbs/list">HBS: All Listings Page</a></li>
+      <li><a href="/airbnb_hbs/search">HBS: Search by ID/Name</a></li>
     </ul>
 
-    <p>Made by: <strong>Frin Patel</strong></p>
+    <h3>Made by: <strong>Frin Patel</strong></h3>
   `);
 });
+
+// app.use("/", (req, res) => {
+//   res.render("home");
+// });
 
 // Load routes
 const employeeRoutes = require("./routes/employees");

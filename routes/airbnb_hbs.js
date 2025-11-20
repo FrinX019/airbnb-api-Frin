@@ -12,10 +12,33 @@ router.get("/", (req, res) => {
 // ===============================
 // SHOW ALL LISTINGS
 // ===============================
+// router.get("/list", async (req, res, next) => {
+//   try {
+//     const listings = await Listing.find().limit(10).lean();
+//     res.render("allListings", { listings });
+//   } catch (err) {
+//     next(err);
+//   }
+// });
+
 router.get("/list", async (req, res, next) => {
   try {
-    const listings = await Listing.find().limit(10).lean();
-    res.render("allListings", { listings });
+    const perPage = 10;
+    const page = parseInt(req.query.page) || 1;
+
+    const totalListings = await Listing.countDocuments();
+    const listings = await Listing.find()
+      .skip((page - 1) * perPage)
+      .limit(perPage)
+      .lean();
+
+    res.render("allListings", {
+      listings,
+      currentPage: page,
+      hasNextPage: page * perPage < totalListings,
+      hasPreviousPage: page > 1
+    });
+
   } catch (err) {
     next(err);
   }

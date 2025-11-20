@@ -25,3 +25,16 @@
         {{/each}}
     </tbody>
 </table>
+
+<hr>
+<div class="pagination">
+    {{#if hasPreviousPage}}
+        <a class="page-btn" href="/airbnb_hbs/list?page={{subtract currentPage 1}}">← Previous</a>
+    {{/if}}
+
+    <span class="page-number">Page {{currentPage}}</span>
+
+    {{#if hasNextPage}}
+        <a class="page-btn" href="/airbnb_hbs/list?page={{add currentPage 1}}">Next →</a>
+    {{/if}}
+</div>
