@@ -79,8 +79,8 @@ POST   /airbnb_hbs/delete/:id      → Confirm delete
 ---
 
 ## 🛠️ Troubleshooting
-    If you see connection errors, verify MONGO_URI_AIRBNB in .env.
-    For "Cannot set headers after they are sent" or other route errors, ensure async errors call next(err) in controllers (see controllers/).
+If you see connection errors, verify MONGO_URI_AIRBNB in .env.
+For "Cannot set headers after they are sent" or other route errors, ensure async errors call next(err) in controllers (see controllers/).
 
 ## 🎖️ Badges
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
