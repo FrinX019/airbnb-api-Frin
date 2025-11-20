@@ -2,16 +2,12 @@ const express = require("express");
 const router = express.Router();
 const Listing = require("../models/airbnb");
 
-// ===============================
 // HOME PAGE
-// ===============================
 router.get("/", (req, res) => {
   res.render("home");
 });
 
-// ===============================
 // SHOW ALL LISTINGS
-// ===============================
 // router.get("/list", async (req, res, next) => {
 //   try {
 //     const listings = await Listing.find().limit(10).lean();
@@ -20,7 +16,7 @@ router.get("/", (req, res) => {
 //     next(err);
 //   }
 // });
-
+// ===============================
 router.get("/list", async (req, res, next) => {
   try {
     const perPage = 10;
@@ -44,9 +40,7 @@ router.get("/list", async (req, res, next) => {
   }
 });
 
-// ===============================
 // VIEW SINGLE LISTING
-// ===============================
 router.get("/view/:id", async (req, res, next) => {
   try {
     const listing = await Listing.findOne({ id: req.params.id }).lean();
@@ -56,9 +50,7 @@ router.get("/view/:id", async (req, res, next) => {
   }
 });
 
-// ===============================
 // ADD LISTING (FORM PAGE)
-// ===============================
 router.get("/add", (req, res) => {
   res.render("addListing");
 });
@@ -74,9 +66,7 @@ router.post("/add", async (req, res, next) => {
 });
 
 
-// ===============================
 // ADVANCED SEARCH (ID or NAME)
-// ===============================
 router.get("/search", async (req, res, next) => {
   try {
     const method = req.query.method;   // id or name
@@ -102,9 +92,7 @@ router.get("/search", async (req, res, next) => {
   }
 });
 
-// ===============================
 // UPDATE LISTING – SEARCH PAGE
-// ===============================
 router.get("/update", async (req, res, next) => {
   try {
     const queryId = req.query.id;
@@ -144,9 +132,7 @@ router.post("/update/:id", async (req, res, next) => {
   }
 });
 
-// ===============================
 // DELETE LISTING – SEARCH PAGE
-// ===============================
 router.get("/delete", async (req, res, next) => {
   try {
     const queryId = req.query.id;
